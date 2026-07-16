@@ -23,6 +23,7 @@
     "about": "APETIO — personal nutrition diary"
   },
   "common": { "ok": "OK" },
+  "errors": { "dbTitle": "Database error" },
   "add": { "title": "Add entry" },
   "recipes": { "title": "Recipe" },
   "language": { "hr": "Croatian", "en": "English" }

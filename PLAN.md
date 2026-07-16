@@ -100,7 +100,8 @@
   *Odgođeno na svoju fazu (best-practice, manji surface):* `react-native-svg` + `@shopify/flash-list` + `expo-haptics` (F2),
   `expo-secure-store` + `expo-camera` + `expo-image-*` (F3/F4), `expo-notifications` (F5),
   `better-sqlite3` (F1 repo-testovi).
-- **F1:** — (bez novih ovisnosti; UUID kroz `expo-crypto` `randomUUID`).
+- **F1 — instalirano:** `expo-crypto` (UUID); dev: `better-sqlite3` + `@types/better-sqlite3`
+  (repo testovi u Node-u), `babel-plugin-inline-import` (Drizzle `.sql` migracije).
 - **F2:** `@gorhom/bottom-sheet` (ako se ne koristi Router modal).
 - **F3:** `expo-image-picker`, `expo-image-manipulator`. (camera/secure-store iz F0.)
 - **F4:** — (koristi `expo-camera` iz F0).
@@ -182,6 +183,14 @@ app.json (ili app.config.ts) · eas.json · eslint.config.js · .prettierrc · t
 
 **Cilj:** Kompletna shema, repozitoriji i migracije rade; agregatne metode spremne;
 lokalni datum i validator ulaza testirani.
+
+> **STATUS: ✅ ISPUNJENO.** Drizzle shema §5 (8 tablica, CHECK-ovi, `idx_diary_date`,
+> FK cascade), migracije (`drizzle-kit generate` + `useMigrations` pri startu; `.sql`
+> inline preko `babel-plugin-inline-import`), repozitoriji (diary/foods/dayMeta/supplements/
+> weight/recipes) s **agregatnim** upitima (dan/raspon/„Često"/recept-JOIN — bez N+1),
+> `src/lib/date.ts` (lokalni datum), validator §12.4, seed suplemenata pri prvom pokretanju.
+> Provjereno: `tsc`, `expo lint`, `expo-doctor` 18/18, **Android bundle**, **Vitest 29/29**
+> (datum: ponoć/TZ; validator; repo agregati na `better-sqlite3` sa stvarnom shemom).
 
 ### Zadaci
 - [ ] Drizzle shema §5: `foods`, `diary_entries` (+ `idx_diary_date`), `recipes`,

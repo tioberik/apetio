@@ -23,6 +23,7 @@
     "about": "APETIO — osobni nutritivni dnevnik"
   },
   "common": { "ok": "U redu" },
+  "errors": { "dbTitle": "Greška baze podataka" },
   "add": { "title": "Dodaj unos" },
   "recipes": { "title": "Recept" },
   "language": { "hr": "Hrvatski", "en": "Engleski" }
