@@ -81,7 +81,9 @@
 | D7 ✅ | **Recept u dnevniku** | **jedan** `diary_entry` (zbrojene, skalirane vrijednosti, `recipe_id`) — potvrđeno | F6 |
 | D8 | Minimalna verzija OS-a | iOS 15+, Android 8+ (Expo default) | F0 |
 | D9 ✅ | **Kompatibilnost s prototipom** | **NIJE potrebna** — radi po najboljim praksama. **Uvoznik §13 se izbacuje iz F1** (nema fixture testa s izvozom vlasnika). Izvoz/uvoz **vlastitog** formata ostaje u F8. | F1/F8 |
-| D10 ✅ | **Expo Go pokretljivost + pohrana** | App mora raditi u **Expo Go (Android)** za trenutno testiranje na uređaju → **bez native modula kojih Expo Go nema**. Zato **`react-native-mmkv` (A3) zamijenjen s `expo-sqlite/kv-store`** (sinkroni KV, u Expo Go). SDK = **57** (trenutni stabilni = Expo Go). Sve ostalo planirano je Expo Go-kompatibilno (secure-store, camera, notifications-lokalne, sqlite, svg, flashlist…). Standalone/EAS build tek za objavu. | sve |
+| D10 ✅ | **Expo Go pokretljivost + pohrana** | App mora raditi u **Expo Go (Android)** za trenutno testiranje na uređaju → **bez native modula kojih Expo Go nema**. Zato **`react-native-mmkv` (A3) zamijenjen s `expo-sqlite/kv-store`** (sinkroni KV, u Expo Go). **SDK = 54** (verzija koju korisnikov Expo Go podržava; SDK 57 je bio prenov za njihov Expo Go). Sve ostalo planirano je Expo Go-kompatibilno (secure-store, camera, notifications-lokalne, sqlite, svg, flashlist…). Standalone/EAS build tek za objavu. | sve |
+
+> **Zamka okoline:** `C:\Users\pc\` (home) ima **vlastiti `node_modules`** koji zasjenjuje pod-projekte (Node resolution ide prema gore). Zato je `babel-preset-expo` **zakovan kao direktna dev-ovisnost** (`54.0.12`) da se razriješi iz projektnog `node_modules`, inače puca `expo-router/_ctx` (EXPO_ROUTER_APP_ROOT). Ako se pojave čudne verzije modula — provjeri roditeljski `node_modules`.
 
 > **Napomena o pohrani:** gdje plan dalje spominje „MMKV" (npr. ciljevi u F2/F7, voda u F5), misli se na ovaj **KV store (`expo-sqlite/kv-store`)** — isti sinkroni `get/set` API, kroz `src/lib/kv.ts`.
 
@@ -89,7 +91,7 @@
 
 ## Matrica ovisnosti (paketi po fazi)
 
-- **F0 (temelj) — instalirano:** `expo`(SDK 57), `expo-router`, RN core
+- **F0 (temelj) — instalirano:** `expo`(SDK 54), `expo-router`, RN core
   (`safe-area-context`, `screens`, `gesture-handler`, `reanimated`/`worklets`),
   `nativewind` + `tailwindcss`, `expo-sqlite` (+ `expo-sqlite/kv-store` za postavke —
   Expo Go-safe zamjena za MMKV, D10), `drizzle-orm`, `react-i18next` + `i18next` +
@@ -113,9 +115,9 @@
 
 **Cilj (spec):** Prazna aplikacija se builda za iOS/Android, mijenja jezik i temu.
 
-> **STATUS: ✅ ISPUNJENO** (commit `F0: foundations …`). Provjereno: `tsc --noEmit` prolazi
-> (strict), `vitest` 2/2, `expo-doctor` 20/20, **Android bundle** (`expo export`) uspješan
-> (1737 modula), `expo lint` čist. Stack: Expo SDK 57, expo-router, NativeWind, react-i18next
+> **STATUS: ✅ ISPUNJENO** (rebuild na **Expo SDK 54** za Expo Go). Provjereno: `tsc --noEmit`
+> prolazi (strict), `vitest` 2/2, `expo-doctor` 18/18, **Android bundle** (`expo export`) uspješan
+> (1452 modula), `expo lint` čist. Stack: Expo SDK 54, expo-router, NativeWind, react-i18next
 > (hr/en), teme (system/light/dark) kroz `src/theme`, KV postavke (`expo-sqlite/kv-store`),
 > Drizzle+expo-sqlite plumbing, EAS profili, bundle id `com.apetio.app`.
 > **Pokretanje u Expo Go:** `npx expo start` → skeniraj QR u Expo Go (Android).
