@@ -1,0 +1,28 @@
+{
+  "brand": {
+    "primary": "#0f766e",
+    "primaryDark": "#2dd4bf",
+    "amber": "#d97706",
+    "amberDark": "#fbbf24",
+    "sky": "#0284c7",
+    "skyDark": "#38bdf8",
+    "violet": "#7c3aed",
+    "violetDark": "#a78bfa"
+  },
+  "light": {
+    "bg": "#f8fafc",
+    "surface": "#ffffff",
+    "surfaceAlt": "#f1f5f9",
+    "border": "#e2e8f0",
+    "text": "#0f172a",
+    "textMuted": "#64748b"
+  },
+  "dark": {
+    "bg": "#020617",
+    "surface": "#0f172a",
+    "surfaceAlt": "#1e293b",
+    "border": "#334155",
+    "text": "#f8fafc",
+    "textMuted": "#94a3b8"
+  }
+}

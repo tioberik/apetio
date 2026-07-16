@@ -1,0 +1,29 @@
+{
+  "app": { "title": "APETIO" },
+  "tabs": {
+    "today": "Danas",
+    "overview": "Pregled",
+    "settings": "Postavke"
+  },
+  "today": {
+    "title": "Danas",
+    "empty": "Još nema unosa za danas. Dodaj svoj prvi obrok."
+  },
+  "overview": {
+    "title": "Pregled",
+    "empty": "Kalendar, grafovi i težina stižu u fazi F7."
+  },
+  "settings": {
+    "title": "Postavke",
+    "language": "Jezik",
+    "theme": "Tema",
+    "themeSystem": "Sustav",
+    "themeLight": "Svijetla",
+    "themeDark": "Tamna",
+    "about": "APETIO — osobni nutritivni dnevnik"
+  },
+  "common": { "ok": "U redu" },
+  "add": { "title": "Dodaj unos" },
+  "recipes": { "title": "Recept" },
+  "language": { "hr": "Hrvatski", "en": "Engleski" }
+}

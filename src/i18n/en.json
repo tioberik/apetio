@@ -1,0 +1,29 @@
+{
+  "app": { "title": "APETIO" },
+  "tabs": {
+    "today": "Today",
+    "overview": "Overview",
+    "settings": "Settings"
+  },
+  "today": {
+    "title": "Today",
+    "empty": "No entries yet today. Add your first meal."
+  },
+  "overview": {
+    "title": "Overview",
+    "empty": "Calendar, charts and weight arrive in phase F7."
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "System",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "about": "APETIO — personal nutrition diary"
+  },
+  "common": { "ok": "OK" },
+  "add": { "title": "Add entry" },
+  "recipes": { "title": "Recipe" },
+  "language": { "hr": "Croatian", "en": "English" }
+}
