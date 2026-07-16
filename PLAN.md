@@ -81,19 +81,23 @@
 | D7 ✅ | **Recept u dnevniku** | **jedan** `diary_entry` (zbrojene, skalirane vrijednosti, `recipe_id`) — potvrđeno | F6 |
 | D8 | Minimalna verzija OS-a | iOS 15+, Android 8+ (Expo default) | F0 |
 | D9 ✅ | **Kompatibilnost s prototipom** | **NIJE potrebna** — radi po najboljim praksama. **Uvoznik §13 se izbacuje iz F1** (nema fixture testa s izvozom vlasnika). Izvoz/uvoz **vlastitog** formata ostaje u F8. | F1/F8 |
+| D10 ✅ | **Expo Go pokretljivost + pohrana** | App mora raditi u **Expo Go (Android)** za trenutno testiranje na uređaju → **bez native modula kojih Expo Go nema**. Zato **`react-native-mmkv` (A3) zamijenjen s `expo-sqlite/kv-store`** (sinkroni KV, u Expo Go). SDK = **57** (trenutni stabilni = Expo Go). Sve ostalo planirano je Expo Go-kompatibilno (secure-store, camera, notifications-lokalne, sqlite, svg, flashlist…). Standalone/EAS build tek za objavu. | sve |
+
+> **Napomena o pohrani:** gdje plan dalje spominje „MMKV" (npr. ciljevi u F2/F7, voda u F5), misli se na ovaj **KV store (`expo-sqlite/kv-store`)** — isti sinkroni `get/set` API, kroz `src/lib/kv.ts`.
 
 ---
 
 ## Matrica ovisnosti (paketi po fazi)
 
-- **F0 (temelj):** `expo`, `expo-router`, `react-native-safe-area-context`,
-  `react-native-screens`, `react-native-gesture-handler`, `react-native-reanimated`,
-  `nativewind` + `tailwindcss` (dev), `react-native-mmkv`, `expo-sqlite`,
-  `drizzle-orm` + `drizzle-kit` (dev), `react-i18next` + `i18next` +
-  `expo-localization`, `expo-haptics`, `react-native-svg`, `@shopify/flash-list`,
-  `expo-secure-store`, `expo-camera`, `expo-notifications`, `expo-status-bar`,
-  `expo-constants`. Dev: `typescript`, `eslint` + `eslint-config-expo`, `prettier`,
-  `vitest`, `better-sqlite3`.
+- **F0 (temelj) — instalirano:** `expo`(SDK 57), `expo-router`, RN core
+  (`safe-area-context`, `screens`, `gesture-handler`, `reanimated`/`worklets`),
+  `nativewind` + `tailwindcss`, `expo-sqlite` (+ `expo-sqlite/kv-store` za postavke —
+  Expo Go-safe zamjena za MMKV, D10), `drizzle-orm`, `react-i18next` + `i18next` +
+  `expo-localization`, `expo-status-bar`. Dev: `typescript`, `eslint` + `eslint-config-expo`,
+  `prettier`, `vitest`, `drizzle-kit`.
+  *Odgođeno na svoju fazu (best-practice, manji surface):* `react-native-svg` + `@shopify/flash-list` + `expo-haptics` (F2),
+  `expo-secure-store` + `expo-camera` + `expo-image-*` (F3/F4), `expo-notifications` (F5),
+  `better-sqlite3` (F1 repo-testovi).
 - **F1:** — (bez novih ovisnosti; UUID kroz `expo-crypto` `randomUUID`).
 - **F2:** `@gorhom/bottom-sheet` (ako se ne koristi Router modal).
 - **F3:** `expo-image-picker`, `expo-image-manipulator`. (camera/secure-store iz F0.)
@@ -108,6 +112,13 @@
 # F0 — Temelji
 
 **Cilj (spec):** Prazna aplikacija se builda za iOS/Android, mijenja jezik i temu.
+
+> **STATUS: ✅ ISPUNJENO** (commit `F0: foundations …`). Provjereno: `tsc --noEmit` prolazi
+> (strict), `vitest` 2/2, `expo-doctor` 20/20, **Android bundle** (`expo export`) uspješan
+> (1737 modula), `expo lint` čist. Stack: Expo SDK 57, expo-router, NativeWind, react-i18next
+> (hr/en), teme (system/light/dark) kroz `src/theme`, KV postavke (`expo-sqlite/kv-store`),
+> Drizzle+expo-sqlite plumbing, EAS profili, bundle id `com.apetio.app`.
+> **Pokretanje u Expo Go:** `npx expo start` → skeniraj QR u Expo Go (Android).
 
 ### Zadaci
 - [ ] Inicijalizirati Expo projekt (TS + Expo Router): `npx create-expo-app@latest`
@@ -125,7 +136,7 @@
 - [ ] `ThemeProvider`: sistemski default + ručni izbor, izbor persistiran u MMKV.
 - [ ] i18n: `src/i18n/{hr,en}.json` (hr = izvor istine), init u root layoutu,
       inicijalni jezik iz `expo-localization`, prebacivanje u Postavkama, persist MMKV.
-- [ ] MMKV wrapper `src/lib/mmkv.ts` + `src/features/settings/store.ts`
+- [ ] KV wrapper `src/lib/kv.ts` (`expo-sqlite/kv-store`, reaktivno) + `src/features/settings/store.ts`
       (ciljevi, locale, tema, preferenca web-pretrage — polja se pune kasnije).
 - [ ] Drizzle „vodovod": `src/db/client.ts` (otvaranje baze), `drizzle.config.ts`,
       pokretač migracija pri startu (shema dolazi u F1 — ovdje dokazati da se baza otvara).
