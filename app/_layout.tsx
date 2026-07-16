@@ -70,6 +70,7 @@ function RootNavigator() {
       >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="dodaj" options={{ presentation: 'modal', headerShown: false }} />
+        <Stack.Screen name="uredi/[id]" options={{ presentation: 'modal', headerShown: false }} />
         <Stack.Screen name="recepti/[id]" options={{ headerShown: false }} />
       </Stack>
     </>

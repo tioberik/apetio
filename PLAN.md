@@ -236,6 +236,18 @@ tests: date.test.ts · nutrition.test.ts · repo-aggregates.test.ts (better-sqli
 
 **Cilj (spec):** Cijeli dan se vodi bez AI-ja; snapshot semantika potvrđena testom.
 
+> **STATUS: ✅ ISPUNJENO.** Ekran **Danas**: prsten kcal (react-native-svg) + makro trake
+> (protein/UH/masti), preostalo/prekoračeno, 4 obroka s unosima + „Dodaj" po obroku,
+> „Ponovi jučer". **Dodaj** (modal, tabovi **Baza**/**Ručno**): Baza = pretraga + lista
+> namirnica (`use_count DESC, name`), dodavanje sa skaliranom **snapshot** vrijednošću +
+> bump usage, long-press briše namirnicu; Ručno = forma + validator §12.4 + quick-add u bazu.
+> **Uredi/[id]** modal: izmjena/brisanje unosa. Reaktivnost preko `addDatabaseChangeListener`;
+> haptika na uspješan unos; lokalizirani brojevi (decimalni zarez). Provjereno: `tsc`,
+> `expo lint`, `expo-doctor` 18/18, **Android bundle**, **Vitest 33/33** (skaliranje +
+> **snapshot regresija**: izmjena/brisanje namirnice ne mijenja postojeće `diary_entries`).
+> *Odgođeno (nije blok1er DoD-a): FlashList (za sada FlatList), uređivanje polja namirnice
+> (za sada brisanje), Recepti tab (F6), AI/Skener tab (F3/F4).*
+
 ### Zadaci
 - [ ] Ekran **Danas** (`app/(tabs)/index.tsx`): prsten kcal + makro trake
       (SVG, portirati iz prototipa, memoizirano), 4 obroka (dorucak/rucak/vecera/uzina)

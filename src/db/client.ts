@@ -5,7 +5,8 @@ import { openDatabaseSync } from 'expo-sqlite';
  * Local-first SQLite klijent (A3). Ekrani NIKAD ne diraju SQL direktno — sve kroz
  * repozitorije (§4). Migracije se pokreću u root layoutu (`useDbMigrations`).
  */
-export const sqlite = openDatabaseSync('apetio.db');
+// `enableChangeListener: true` je nužan da `addDatabaseChangeListener` (reaktivnost UI-ja) radi.
+export const sqlite = openDatabaseSync('apetio.db', { enableChangeListener: true });
 
 // ON DELETE CASCADE (recipe_items → recipes, §5) radi samo uz uključene strane ključeve.
 sqlite.execSync('PRAGMA foreign_keys = ON;');

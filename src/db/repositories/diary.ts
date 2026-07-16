@@ -21,6 +21,10 @@ const SUM_COLUMNS = {
   carbs: sql<number>`coalesce(sum(${diaryEntries.carbs}), 0)`,
 };
 
+export function getEntry(db: AppDatabase, id: string): DiaryEntry | undefined {
+  return db.select().from(diaryEntries).where(eq(diaryEntries.id, id)).get();
+}
+
 /** Svi unosi jednog dana — JEDAN upit; podjela po obrocima ide u memoriji (§17). */
 export function getDayEntries(db: AppDatabase, date: string): DiaryEntry[] {
   return db

@@ -7,11 +7,58 @@
   },
   "today": {
     "title": "Danas",
-    "empty": "Još nema unosa za danas. Dodaj svoj prvi obrok."
+    "kcalUnit": "kcal",
+    "goal": "od {{goal}}",
+    "remaining": "preostalo {{value}}",
+    "over": "prekoračeno {{value}}",
+    "repeatYesterday": "Ponovi jučer",
+    "nothingYesterday": "Jučer nema unosa za kopirati.",
+    "repeated": "Dodano unosa: {{count}}"
   },
-  "overview": {
-    "title": "Pregled",
-    "empty": "Kalendar, grafovi i težina stižu u fazi F7."
+  "meals": {
+    "dorucak": "Doručak",
+    "rucak": "Ručak",
+    "vecera": "Večera",
+    "uzina": "Užina",
+    "empty": "Nema unosa",
+    "add": "Dodaj"
+  },
+  "macros": {
+    "protein": "Proteini",
+    "fat": "Masti",
+    "carbs": "Ugljikohidrati"
+  },
+  "add": {
+    "title": "Dodaj — {{meal}}",
+    "tabBase": "Baza",
+    "tabManual": "Ručno",
+    "frequent": "Često",
+    "all": "Sve",
+    "search": "Pretraži namirnice",
+    "empty": "Baza je prazna — dodaj ručno.",
+    "amount": "Količina",
+    "name": "Naziv",
+    "unit": "Jedinica",
+    "kcal": "Kalorije (kcal)",
+    "saveToBase": "Spremi u bazu",
+    "addButton": "Dodaj",
+    "per100": "vrijednosti za {{amount}} {{unit}}"
+  },
+  "edit": {
+    "title": "Uredi unos",
+    "deleteConfirm": "Obrisati ovaj unos?"
+  },
+  "recipes": { "title": "Recept" },
+  "common": {
+    "ok": "U redu",
+    "cancel": "Odustani",
+    "save": "Spremi",
+    "delete": "Obriši",
+    "edit": "Uredi"
+  },
+  "errors": {
+    "dbTitle": "Greška baze podataka",
+    "invalid": "Provjeri unesene vrijednosti."
   },
   "settings": {
     "title": "Postavke",
@@ -22,9 +69,5 @@
     "themeDark": "Tamna",
     "about": "APETIO — osobni nutritivni dnevnik"
   },
-  "common": { "ok": "U redu" },
-  "errors": { "dbTitle": "Greška baze podataka" },
-  "add": { "title": "Dodaj unos" },
-  "recipes": { "title": "Recept" },
   "language": { "hr": "Hrvatski", "en": "Engleski" }
 }

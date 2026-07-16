@@ -7,11 +7,58 @@
   },
   "today": {
     "title": "Today",
-    "empty": "No entries yet today. Add your first meal."
+    "kcalUnit": "kcal",
+    "goal": "of {{goal}}",
+    "remaining": "{{value}} left",
+    "over": "{{value}} over",
+    "repeatYesterday": "Repeat yesterday",
+    "nothingYesterday": "No entries to copy from yesterday.",
+    "repeated": "Entries added: {{count}}"
   },
-  "overview": {
-    "title": "Overview",
-    "empty": "Calendar, charts and weight arrive in phase F7."
+  "meals": {
+    "dorucak": "Breakfast",
+    "rucak": "Lunch",
+    "vecera": "Dinner",
+    "uzina": "Snack",
+    "empty": "No entries",
+    "add": "Add"
+  },
+  "macros": {
+    "protein": "Protein",
+    "fat": "Fat",
+    "carbs": "Carbs"
+  },
+  "add": {
+    "title": "Add — {{meal}}",
+    "tabBase": "Foods",
+    "tabManual": "Manual",
+    "frequent": "Frequent",
+    "all": "All",
+    "search": "Search foods",
+    "empty": "Foods list is empty — add manually.",
+    "amount": "Amount",
+    "name": "Name",
+    "unit": "Unit",
+    "kcal": "Calories (kcal)",
+    "saveToBase": "Save to foods",
+    "addButton": "Add",
+    "per100": "values per {{amount}} {{unit}}"
+  },
+  "edit": {
+    "title": "Edit entry",
+    "deleteConfirm": "Delete this entry?"
+  },
+  "recipes": { "title": "Recipe" },
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit"
+  },
+  "errors": {
+    "dbTitle": "Database error",
+    "invalid": "Check the entered values."
   },
   "settings": {
     "title": "Settings",
@@ -22,9 +69,5 @@
     "themeDark": "Dark",
     "about": "APETIO — personal nutrition diary"
   },
-  "common": { "ok": "OK" },
-  "errors": { "dbTitle": "Database error" },
-  "add": { "title": "Add entry" },
-  "recipes": { "title": "Recipe" },
   "language": { "hr": "Croatian", "en": "English" }
 }
